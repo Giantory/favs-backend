@@ -1,0 +1,28 @@
+{
+  "name": "favs-backend",
+  "version": "1.0.0",
+  "description": "backend for Favs company",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "node apis.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Giantory/favs-backend.git"
+  },
+  "author": "Giantory Espino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Giantory/favs-backend/issues"
+  },
+  "homepage": "https://github.com/Giantory/favs-backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.0",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
+  }
+}
