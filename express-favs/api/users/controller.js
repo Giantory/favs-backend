@@ -16,12 +16,12 @@ exports.getAllUsers = (req, res) => {
         });
 };
 exports.signinUser = async (req, res) => {
-    const user = await UserUserModel.findOne({ email: req.body.email })
+    const user = await UserModel.findOne({ email: req.body.email })
     try {
         if (!user) {
             return res.status(404).json({ success: false, message: "El usuario no existe" });
         }
-        let isValid = await UserUserModel.comparePassword(
+        let isValid = await UserModel.comparePassword(
             req.body.password,
             user.password
         );
