@@ -56,27 +56,3 @@ exports.signupUser = async (req, res) => {
             res.status(400).json({ success: false, error: err });
         });
 };
-exports.deleteAllUsers = (req, res) => {
-    UserModel.deleteMany()
-        .then((response) => {
-            res.status(200).json({ success: true, message: "All users delete" });
-        })
-        .catch((err) => {
-            console.log(err);
-            res.status(400).json({ success: false, error: err });
-        });
-};
-exports.updateUser = (req, res) => {
-    const id = req.params.id;
-    const body = req.body;
-    UserModel.findByIdAndUpdate(id, body, { new: true })
-        .then((response) => {
-            res
-                .status(200)
-                .json({ success: true, message: "User update", data: response });
-        })
-        .catch((err) => {
-            console.log(err);
-            res.status(400).json({ success: false, error: err });
-        });
-};

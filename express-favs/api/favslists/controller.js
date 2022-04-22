@@ -73,13 +73,3 @@ exports.deleteListById = (req, res) => {
             res.status(400).json({ success: false, error: err });
         });
 };
-exports.deleteAllLists = (req, res) => {
-    ListModel.deleteMany()
-        .then((response) => {
-            res.status(200).json({ success: true, message: "All lists deleted" });
-        })
-        .catch((err) => {
-            console.log(err);
-            res.status(400).json({ success: false, error: err });
-        });
-};
