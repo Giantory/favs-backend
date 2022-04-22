@@ -1,12 +1,12 @@
-const supertest = require('supertest')
-const app = require ('./index')
+const request = require("supertest");
+const mongoose = require("mongoose");
+const app = require("./app");
 
-const api = supertest(app)
+const PORT = 3001;
 
-test('create a valid user' , async () => {
-    await api
-    const newUser = {
-        correo: "johndoe@gmail.com",
-        password: "johndoe123"
-    }
-})
+mongoose.connect(`mongodb://localhost:27017/favsDB`);
+
+app.listen(PORT, () => {
+  console.log(`App listening on ${PORT}`);
+});
+//do some test...
