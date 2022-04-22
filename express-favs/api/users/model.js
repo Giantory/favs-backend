@@ -1,17 +1,20 @@
 const mongoose = require('mongoose')
 const bcrypt = require("bcryptjs");
 
-const userSchema = new mongoose.Schema({
+const userFields= {
     email: { type: String},
-    password: { type: String},
-    list: {
+    password: { type: String}, 
+};
+
+const listref = {
+    favslists: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Lists"
-    }
-},
-{
-    collection: 'User'
-});
+        ref: "FavsList"
+    }]
+}
+
+const userSchema = mongoose.Schema(Object.assign(userFields, listref),{collection: "User"})
+
 userSchema.statics.encryptPassword = async (password) => {
     const value = await bcrypt.genSalt(10);
     return await bcrypt.hash(password, value);
@@ -26,4 +29,8 @@ userSchema.pre('save', async function save(next) {
     }
     next();
 });
-module.exports = mongoose.model('User', userSchema);
+module.exports = {
+    UserModel: mongoose.model("User", userSchema),
+    userFields,
+    listref
+}

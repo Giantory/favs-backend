@@ -1,12 +1,13 @@
 const mongoose = require('mongoose')
 
 const favSchema = new mongoose.Schema({
+    
     tittle: { type: String},
     description: { type: String},
     link: { type: String}
 },
 {
-    collection: 'Favs'
+    collection: 'Fav'
 });
 
-module.exports = mongoose.model('Favs', favSchema);
+module.exports = mongoose.model('Fav', favSchema);
