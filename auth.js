@@ -22,7 +22,7 @@ const auth = (req, res, next) => {
       message: 'Unauthorized'
     });
   } else {
-    verify(token, secret, (err, decoded) => {
+    verify(token, 'user', (err, decoded) => {
       if (err) {
         res.status(401).json({
           success: false,
@@ -34,8 +34,6 @@ const auth = (req, res, next) => {
     });
   }
 }
-
-
 
 module.exports = {
   signToken,
