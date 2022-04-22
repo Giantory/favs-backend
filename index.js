@@ -25,3 +25,5 @@ app.use('/api/favs', favs);
 app.use('/api/users', users);
 
 
+module.exports = app
+
