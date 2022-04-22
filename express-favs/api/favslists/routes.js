@@ -6,6 +6,6 @@ const {auth} = require("../../../auth")
 router.get("/", auth,ListController.getAllLists);
 router.get("/:id", auth,ListController.getListById);
 router.post("/create", auth,ListController.newList);
-router.delete("/delete/:id", ListController.deleteListById);
+router.delete("/delete/:id",auth, ListController.deleteListById);
 
 module.exports = router;
