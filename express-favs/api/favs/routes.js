@@ -4,6 +4,6 @@ const FavsController = require("./controller");
 const {auth} = require("../../../auth")
 
 
-router.post("/:id",auth, FavsController.newFav);
+router.post("/addfav/:id",auth, FavsController.newFav);
 
 module.exports = router;

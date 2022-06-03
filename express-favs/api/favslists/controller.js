@@ -23,7 +23,7 @@ exports.getListById = async (req, res) => {
                 const message = `${ListModel.modelName} not found`;
                 res.status(404).json({ success: true, message: message, data: response })
             } else {
-                res.status(200).json({ success: true, message: 'Course has been found', data: response })
+                res.status(200).json({ success: true, data: response })
             }
         })
         .catch((err) => {
